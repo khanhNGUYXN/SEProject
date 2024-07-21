@@ -15,7 +15,7 @@ func RenderTemplComponent(c echo.Context, component templ.Component) error {
 
 func InitDB() (context.Context, *db.Queries) {
 	ctx := context.Background()
-	conn, err := pgx.Connect(ctx, "postgresql://root:1234@localhost:5432/postgres?sslmode=disable")
+	conn, err := pgx.Connect(ctx, "postgresql://root:admin@localhost:5432/postgres?sslmode=disable")
 	if err != nil {
 		panic(err)
 	}

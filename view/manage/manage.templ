@@ -1,0 +1,39 @@
+{{ define "manage" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Movies</title>
+    <link rel="stylesheet" href="/static/css/output.css">
+</head>
+<body>
+    <h1>Manage Movies</h1>
+
+    <!-- Display a list of movies -->
+    <div>
+        <h2>Current Movies</h2>
+        <ul>
+        {{ range .Movies }}
+            <li>{{ .Title }} - <button onclick="deleteMovie({{ .MovieID }})">Delete</button></li>
+        {{ else }}
+            <li>No movies found.</li>
+        {{ end }}
+        </ul>
+    </div>
+
+    <!-- Form to add a new movie -->
+    <div>
+        <h2>Add a New Movie</h2>
+        <form id="addMovieForm">
+            <input type="text" name="title" placeholder="Title" required>
+            <textarea name="overview" placeholder="Overview" required></textarea>
+            <!-- Add other fields as necessary -->
+            <button type="submit">Add Movie</button>
+        </form>
+    </div>
+
+    <script src="/static/scripts/manage.js"></script>
+</body>
+</html>
+{{ end }}
